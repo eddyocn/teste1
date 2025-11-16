@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  api:
+    build: ./apps/api
+    container_name: bootcamp-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/api/data:/app/data
+  web:
+    build: ./apps/web
+    container_name: bootcamp-web
+    ports:
+      - "8080:80"
+    environment:
+      - VITE_API_URL=http://api:3000
+    depends_on:
+      - api

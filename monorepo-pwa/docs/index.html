@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contador de Cliques — Extensão (MV3)</title>
+  <meta name="description" content="Extensão Contador de Cliques - Manifest V3 - Bootcamp II" />
+  <link rel="icon" href="/favicon.svg" />
+  <style>
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;padding:24px;background:#f7f9fc;color:#111}
+    .wrap{max-width:900px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px}
+    .hero h1{margin:0 0 8px}
+    .card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.06);margin-top:16px}
+    a.button{display:inline-block;padding:10px 14px;border-radius:8px;background:#1a73e8;color:white;text-decoration:none}
+    pre{background:#0b1220;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="/icons/icon-192.png" width="64" height="64" alt="icon"/>
+      <div class="hero">
+        <h1>Contador de Cliques — Extensão (Manifest V3)</h1>
+        <div>Versão para testes e demonstração — Bootcamp II</div>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>Download da extensão</h2>
+      <p>Baixe o pacote gerado pelo build automático: <a class="button" href="/dist/extension.zip">Download .zip</a></p>
+      <p>Se preferir, você pode carregar a extensão em <strong>Modo desenvolvedor</strong> no Chrome.</p>
+    </div>
+
+    <div class="card">
+      <h2>Instalação manual (modo desenvolvedor)</h2>
+      <ol>
+        <li>Abra <code>chrome://extensions</code> no Chrome.</li>
+        <li>Ative <strong>Developer mode</strong> (canto superior direito).</li>
+        <li>Clique <strong>Load unpacked</strong> e selecione a pasta <code>dist/</code> da extensão (após rodar o script de build).</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Como gerar o pacote (.zip)</h2>
+      <pre>
+# na raiz do repositório
+npm i -D archiver
+node scripts/build-extension.mjs
+      </pre>
+      <p>O build copia os arquivos de <code>extension-src/</code> → <code>dist/</code> e gera <code>dist/extension.zip</code>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Notas</h2>
+      <ul>
+        <li>Coloque os arquivos da extensão na pasta <code>extension-src/</code> (manifest.json, src/, icons/).</li>
+        <li>O script de build requer <code>archiver</code> (devDependency) — instale com <code>npm i -D archiver</code>.</li>
+        <li>O arquivo ZIP será publicado como artefato no CI e também disponível no Pages em <code>/dist/extension.zip</code> (se o branch Pages incluir esse diretório).</li>
+      </ul>
+    </div>
+
+    <footer style="margin-top:28px;font-size:13px;color:#666">Feito para Bootcamp II — Professor Romes</footer>
+  </div>
+</body>
+</html>
